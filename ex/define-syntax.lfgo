@@ -1,0 +1,20 @@
+(import "fmt")
+(define-syntax sum
+  (syntax-rules ()
+    [(sum) 0]
+    [(sum a) a]
+    [(sum a b) (+ a b)]
+    [(sum a b ...) (+ a (sum b ...))]))
+
+(define-syntax-rule (infix a op b) (op a b))
+
+(define-syntax-rule (ret a) (return a))
+
+(defmacro unless (pred a b)
+  `(if (not ,pred) ,a ,b))
+
+(main
+  (fmt.Println (sum 1 2 3 4))
+  (fmt.Println (infix 1 + 2))
+  (unless false (fmt.Println "Will print") (fmt.Println "Will not print"))
+  (ret 1))

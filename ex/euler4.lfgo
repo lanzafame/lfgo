@@ -1,0 +1,24 @@
+; Project Euler 4
+(import "fmt" "strconv")
+    
+(defn isPalindrome ((p int)) bool
+  (def ps (strconv.Itoa p))
+  (def len (len ps)
+    to (/ len 2)
+    pal true
+    k 0)
+  (while (< k to)
+    (if (!= (at ps k) (at ps (- len k 1)))
+      (do (= pal false)
+        break))
+    (++ k))
+  (return pal))
+
+(main
+  (def maxP 0)
+  (for (def i 999) (>= i 100) (-- i)
+     (for (def j 999) (>= j i) (-- j)
+       (def p (* i j))
+       (if (and (> p maxP) (isPalindrome p))
+          (= maxP p))))
+  (fmt.Println maxP))

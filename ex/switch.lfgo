@@ -1,0 +1,10 @@
+(import "fmt")
+
+(main
+  (for (def i 0) (< i 5) (++ i)
+    (fmt.Print i ": ")
+    (switch i
+      (case 0) fallthrough
+      (case 1) (fmt.Println "0 or 1")
+      (case 2) (fmt.Println "2")
+      (default) (fmt.Println "other"))))

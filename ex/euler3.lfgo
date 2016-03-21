@@ -1,0 +1,10 @@
+(import "fmt")
+(main
+  (def num (int64 600851475143) p (int64 2))
+  (while true
+    (while (== 0 (% num p))
+      (/= num p))
+    (when (<= num 1)
+      (fmt.Println p)
+      break)
+    (++ p)))

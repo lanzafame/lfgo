@@ -1,0 +1,9 @@
+(import "fmt")
+
+(main
+  (def i 1)
+  (label start)
+  (if (<= i 9) (fmt.Print i) (goto end))
+  (++ i)
+  (goto start)
+  (label end))

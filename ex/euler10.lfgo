@@ -1,0 +1,25 @@
+(import "fmt")
+
+(defn primesUnder ((limit int)) |[]int|
+  (def p (make |[]bool| limit))
+  (if (>= limit 3)
+    (= (at p 2) true))
+  (for (def i 3) (< i limit) (+= i 2)
+    (= (at p i) true))
+  (for (def i 3) (< (* i i) limit) (+= i 2)
+    (if (not (at p i))
+      (continue))
+    (for (def j (* i 2)) (< j limit) (+= j i)
+      (= (at p j) false)))  
+  (var r |[]int|)
+  (for (def i 2) (< i limit) (++ i)
+    (if (at p i)
+      (= r (append r i))))
+  (return r))
+
+(main
+  (def sum (int64 0)
+    primes (primesUnder 2000000))
+  (while (def (comma _ v) (range primes))
+    (+= sum (int64 v)))
+  (fmt.Println sum))

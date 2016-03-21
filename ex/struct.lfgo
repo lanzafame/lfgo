@@ -1,0 +1,3 @@
+(import "fmt")
+(type Vertex (struct ((X Y int))))
+(main (var v1 Vertex) (fmt.Println v1))

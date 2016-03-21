@@ -1,0 +1,7 @@
+# temporary
+a-out.go
+a-out
+*.exe
+
+# backup
+*.bak

@@ -1,0 +1,16 @@
+(import "fmt")
+
+(defn isPrime ((n int)) bool
+  (for (def i 2) (<= (* i i) n) (++ i)
+    (if (== 0 (% n i)) (return false)))
+  (return true))
+  
+(main
+  (def count 0 i 2)
+  (while true
+    (when (isPrime i)
+      (++ count)
+      (when (== count 10001)
+        (fmt.Println i)
+        break))
+    (++ i)))

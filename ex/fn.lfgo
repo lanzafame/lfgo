@@ -1,0 +1,8 @@
+(import "fmt")
+(main
+  (def d (fn ((x float32)) float32 (return (- (* x x) 0.5))))
+  (def adder (fn ((x int)) |func (int) int| (return (fn ((y int)) int (return (+ x y))))))
+  (def add1 (adder 1))
+  (fmt.Println "hello world")
+  (fmt.Println (d 2.0))
+  (fmt.Println (add1 2)))
